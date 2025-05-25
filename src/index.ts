@@ -1,12 +1,12 @@
-import { createKlingVideo, getKlingResult } from './kling';
+import { editImage, generateImage } from './image-1';
+
+const PROMPT = `
+把图片中的比熊犬换成一只英短蓝白猫
+`
 
 async function main() {
-    try {
-        const data = await getKlingResult('kling_0e612f5c5494');
-        console.log(JSON.stringify(data, null, 2));
-    } catch (error) {
-        console.error("Error creating video:", error);
-    }
+    const response = await editImage('https://file.302.ai/gpt/imgs/20250525/bc78f9f5921141c0ad7d0ef2bc829ec2.png', PROMPT);
+    console.log(response);
 }
 
 main();
